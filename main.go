@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	httpSwagger "github.com/swaggo/http-swagger"
 
@@ -31,11 +32,21 @@ func main() {
 		httpSwagger.URL("/swagger/doc.json"), // The URL (or route) for the Swagger JSON endpoint
 	))
 
+	// Enable CORS for all routes
+	corsHandler := handlers.CORS(
+		handlers.AllowedOrigins([]string{"https://sea-turtle-app-iyi6a.ondigitalocean.app", "http://localhost:8080"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
+	)
+
+	// Create a new HTTP handler with the CORS middleware
+	corsRouter := corsHandler(r)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 
 	log.Printf("Server started on :%s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, r))
+	log.Fatal(http.ListenAndServe(":"+port, corsRouter))
 }
