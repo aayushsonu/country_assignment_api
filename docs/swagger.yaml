@@ -9,7 +9,7 @@ definitions:
     type: object
   main.ErrorResponse:
     type: object
-host: localhost:8080
+host: sea-turtle-app-iyi6a.ondigitalocean.app
 info:
   contact: {}
   description: API Documentation for all the endpoints

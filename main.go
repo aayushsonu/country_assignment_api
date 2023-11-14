@@ -15,7 +15,7 @@ import (
 // @version 1.0
 // @description API Documentation for all the endpoints
 // @termsOfService https://example.com/terms/
-// @host localhost:8080
+// @host sea-turtle-app-iyi6a.ondigitalocean.app
 // @basePath /api/v1
 
 func main() {

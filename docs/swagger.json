@@ -7,7 +7,7 @@
         "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "sea-turtle-app-iyi6a.ondigitalocean.app",
     "basePath": "/api/v1",
     "paths": {
         "/auth": {
