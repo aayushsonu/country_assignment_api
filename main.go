@@ -34,7 +34,7 @@ func main() {
 
 	// Enable CORS for all routes
 	corsHandler := handlers.CORS(
-		handlers.AllowedOrigins([]string{"https://sea-turtle-app-iyi6a.ondigitalocean.app", "http://localhost:8080"}),
+		handlers.AllowedOrigins([]string{"https://sea-turtle-app-iyi6a.ondigitalocean.app", "http://localhost:8080", "https://assignment.snifyak.com", "*"}),
 		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
 		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
 	)
