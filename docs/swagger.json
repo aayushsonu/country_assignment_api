@@ -7,7 +7,7 @@
         "contact": {},
         "version": "1.0"
     },
-    "host": "sea-turtle-app-iyi6a.ondigitalocean.app",
+    "host": "assignment.snifyak.com",
     "basePath": "/api/v1",
     "paths": {
         "/auth": {

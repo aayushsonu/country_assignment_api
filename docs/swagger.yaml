@@ -9,7 +9,7 @@ definitions:
     type: object
   main.ErrorResponse:
     type: object
-host: sea-turtle-app-iyi6a.ondigitalocean.app
+host: assignment.snifyak.com
 info:
   contact: {}
   description: API Documentation for all the endpoints
