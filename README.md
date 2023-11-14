@@ -1,9 +1,53 @@
 
-# Country API
+# Country API Assignment - Golang
 
-This API service provides information about countries using the REST Countries API (https://restcountries.com).
+This API service provides information about countries using the REST Countries API (<https://restcountries.com>).
 
-<!-- http://localhost:8080/countries/filter?population=100000000&area=500000&sort=desc&page=2&itemsPerPage=5 -->
+## Installation
+
+To use this API, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/aayushsonu/country_assignment_api.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd country_assignment_api
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    go mod download
+    ```
+
+4. Build the application:
+
+    ```bash
+    go build
+    ```
+
+5. Run the application:
+
+    ```bash
+    ./country_assignment_api
+    ```
+
+## Swagger Documentation
+
+Explore the API interactively using Swagger UI:
+
+[Swagger UI](http://localhost:8080/swagger/index.html) : <http://localhost:8080/swagger/index.html>
+
+- After extracting auth token from /auth endpoint you have to put that token in other endpoint's Authorization Header. So, Don't forget to use the keyword `Bearer` to mention before the token like `Authorization: Bearer <AUTH_TOKEN>`
+
+- You can also do this by using curl command. For this for the below steps. (cURL utility must be installed in your system)
+
+## BaseURL Endpoint: /api/v1
 
 ## Endpoints
 
@@ -18,8 +62,11 @@ This API service provides information about countries using the REST Countries A
 **Example:**
 
 ```bash
-curl -X POST -d "username=snifyak&password=123@snifyak@123" http://localhost:8080/auth
+curl -X POST -d "username=<USERNAME>&password=<PASSWORD>" http://localhost:8080/api/v1/auth
 ```
+
+- Replace `<USERNAME>` and `<PASSWORD>` with your credentials
+- Valid Credential is USERNAME=snifyak and PASSWORD=123@snifyak@123
 
 ### 2. Fetch Country Information
 
@@ -32,12 +79,12 @@ curl -X POST -d "username=snifyak&password=123@snifyak@123" http://localhost:808
 **Example:**
 
 ```bash
-curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/country?name=India
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/country?name=India
 ```
 
-### 3. Retrieve List of Countries
+### 3. Retrieve List of Countries based on filter
 
-**Endpoint:** `/countries`
+**Endpoint:** `/countries/filter`
 
 **Method:** `GET`
 
@@ -45,8 +92,62 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/country?
 
 **Example:**
 
+- Default Page = 1
+- Per Page = 20 countries
+- Default sorting = asc
+- Sorting option = asc/desc, if any other value provided then it will sort using ascending order, no error generated
+- Sorting technique = Dictionary Based
+- Optional paramters = population,area,lang,page,sort
+- If no filter provided then it will response with 20 coutries name in ascending order
+
+**Filter using Population:**
+
 ```bash
-curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/countries/filter?population=250000&sort=asc&page=1
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?population=2500000&sort=asc&page=1
+```
+
+**Filter using Area:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?area=948
+```
+
+**Filter using Language:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?lang=eng&sort=asc&page=1
+```
+
+**Filter using Population & Language:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?population=10000&lang=eng&sort=asc&page=1
+```
+
+**Pagination:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?population=50000000&page=2
+```
+
+**Pagination:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?lang=eng&sort=desc
+```
+
+### 4. Fetch All Countries (Optional) - for testing purpose only
+
+**Endpoint:** `/countries`
+
+**Method:** `GET`
+
+**Description:** Fetches all countries details - For testing purpose only. Because it fetch all the details that's why it takes time to load (approx. 5-10 seconds)
+
+**Example:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries
 ```
 
 ## Error Handling

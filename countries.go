@@ -267,7 +267,7 @@ func filterAndSortCountries(countries []map[string]interface{}, populationFilter
 		languages, langOk := country["languages"].(map[string]interface{})
 
 		// Apply filters
-		populationCondition := !popOk || (populationFilter <= 0 || int(population) > populationFilter)
+		populationCondition := !popOk || (populationFilter <= 0 || int(population) >= populationFilter)
 		areaCondition := !areaOk || (areaFilter <= 0 || int(area) == areaFilter)
 		languageCondition := !langOk || (languageFilter == "" || languages[languageFilter] != nil)
 
