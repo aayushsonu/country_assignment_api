@@ -1,6 +1,6 @@
 module country_assignment_api
 
-go 1.21.3
+go 1.21.4
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
