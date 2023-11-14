@@ -45,7 +45,7 @@ Explore the API interactively using Swagger UI:
 
 - After extracting auth token from /auth endpoint you have to put that token in other endpoint's Authorization Header. So, Don't forget to use the keyword `Bearer` to mention before the token like `Authorization: Bearer <AUTH_TOKEN>`
 
-- You can also do this by using curl command. For this for the below steps. (cURL utility must be installed in your system)
+- You can also do this by using curl command. For this follow the below steps. (cURL utility must be installed in your system)
 
 ## BaseURL Endpoint: /api/v1
 
