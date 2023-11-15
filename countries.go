@@ -11,10 +11,10 @@ import (
 	"strings"
 )
 
-// CountriesListHandler retrieves a list of all countries.
+// CountriesListHandler retrieves a list of all countries details - For testing purpose only.
 // CountriesListHandler godoc
-// @Summary Retrieve a list of all countries
-// @Description Retrieve a list of all countries
+// @Summary Retrieve a list of all countries details
+// @Description Retrieve a list of all countries - For testing purpose only. Because it retrieves all the details it will take some time to load (8-12 seconds)
 // @Tags countries
 // @Accept  json
 // @Produce  json

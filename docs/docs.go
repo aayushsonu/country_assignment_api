@@ -78,7 +78,7 @@ const docTemplate = `{
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "Retrieve a list of all countries",
+                "description": "Retrieve a list of all countries - For testing purpose only. Because it retrieves all the details it will take some time to load (8-12 seconds)",
                 "consumes": [
                     "application/json"
                 ],
@@ -88,7 +88,7 @@ const docTemplate = `{
                 "tags": [
                     "countries"
                 ],
-                "summary": "Retrieve a list of all countries",
+                "summary": "Retrieve a list of all countries details",
                 "parameters": [
                     {
                         "type": "string",
