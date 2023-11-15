@@ -7,7 +7,9 @@ This API service provides information about countries using the REST Countries A
 
 ## Swagger Documentation can be accessed on <https://assignment.snifyak.com/swagger/index.html>
 
-## Installation
+## Still want to host locally? Follow the below steps
+
+### Installation
 
 To use this API, follow these steps:
 
@@ -84,6 +86,8 @@ curl -X POST -d "username=<USERNAME>&password=<PASSWORD>" http://localhost:8080/
 
 **Endpoint:** `/country`
 
+**Parameter:** `name`
+
 **Method:** `GET`
 
 **Description:** Fetches detailed information about a specific country by providing its name as a parameter.
@@ -102,6 +106,8 @@ curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/
 curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/country?name=India
 ```
 
+- Put any country name in `name` parameter.
+
 ### 3. Retrieve List of Countries based on filter
 
 **Endpoint:** `/countries/filter`
@@ -110,8 +116,6 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/c
 
 **Description:** Retrieves a list of all countries' names based on filters (population/area/language) and sorting (asc/desc). Supports pagination.
 
-**Example:**
-
 - Default Page = 1
 - Per Page = 20 countries
 - Default sorting = asc
@@ -119,6 +123,8 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/c
 - Sorting technique = Dictionary Based
 - Optional paramters = population,area,lang,page,sort
 - If no filter provided then it will response with 20 coutries name in ascending order
+
+**Example:**
 
 ## Deployed Instance
 

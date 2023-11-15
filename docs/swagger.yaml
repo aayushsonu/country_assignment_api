@@ -170,4 +170,6 @@ paths:
       summary: Get detailed information about a specific country
       tags:
       - countries
+schemes:
+- https
 swagger: "2.0"

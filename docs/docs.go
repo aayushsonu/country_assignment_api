@@ -275,7 +275,7 @@ var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "assignment.snifyak.com",
 	BasePath:         "/api/v1",
-	Schemes:          []string{},
+	Schemes:          []string{"https"},
 	Title:            "API_Assignment | Swagger",
 	Description:      "API Documentation for all the endpoints",
 	InfoInstanceName: "swagger",

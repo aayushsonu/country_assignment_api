@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -18,10 +19,12 @@ import (
 // @termsOfService https://example.com/terms/
 // @host assignment.snifyak.com
 // @basePath /api/v1
+// @Schemes https
 
 func main() {
 	r := mux.NewRouter()
 
+	r.HandleFunc("/", welcomeHandler)
 	r.HandleFunc("/api/v1/auth", AuthHandler).Methods("POST")
 	r.Handle("/api/v1/country", AuthMiddleware(http.HandlerFunc(CountryDetailsHandler))).Methods("GET")
 	r.Handle("/api/v1/countries", AuthMiddleware(http.HandlerFunc(CountriesListHandler))).Methods("GET")
@@ -49,4 +52,12 @@ func main() {
 
 	log.Printf("Server started on :%s\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, corsRouter))
+}
+
+func welcomeHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, "<div style=\"text-align: center; margin-top: 50px;\">")
+	fmt.Fprintf(w, "<h1>Welcome to the Country API Assignment</h1>")
+	fmt.Fprintf(w, "<p>Explore the API documentation at <a href=\"/swagger/index.html\">Swagger UI</a>.</p>")
+	fmt.Fprintf(w, "</div>")
 }
