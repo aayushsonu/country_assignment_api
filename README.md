@@ -3,6 +3,10 @@
 
 This API service provides information about countries using the REST Countries API (<https://restcountries.com>).
 
+## This project is Live on <https://assignment.snifyak.com/>
+
+## Swagger Documentation can be accessed on <https://assignment.snifyak.com/swagger/index.html>
+
 ## Installation
 
 To use this API, follow these steps:
@@ -61,6 +65,14 @@ Explore the API interactively using Swagger UI:
 
 **Example:**
 
+- Deployed Instance
+
+```bash
+curl -X POST -d "username=<USERNAME>&password=<PASSWORD>" http://assignment.snifyak.com/api/v1/auth
+```
+
+- Development
+
 ```bash
 curl -X POST -d "username=<USERNAME>&password=<PASSWORD>" http://localhost:8080/api/v1/auth
 ```
@@ -77,6 +89,14 @@ curl -X POST -d "username=<USERNAME>&password=<PASSWORD>" http://localhost:8080/
 **Description:** Fetches detailed information about a specific country by providing its name as a parameter.
 
 **Example:**
+
+- Deployed Instance
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/country?name=India
+```
+
+- Development
 
 ```bash
 curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/country?name=India
@@ -99,6 +119,46 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/c
 - Sorting technique = Dictionary Based
 - Optional paramters = population,area,lang,page,sort
 - If no filter provided then it will response with 20 coutries name in ascending order
+
+## Deployed Instance
+
+**Filter using Population:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?population=2500000&sort=asc&page=1
+```
+
+**Filter using Area:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?area=948
+```
+
+**Filter using Language:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?lang=eng&sort=asc&page=1
+```
+
+**Filter using Population & Language:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?population=10000&lang=eng&sort=asc&page=1
+```
+
+**Pagination:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?population=50000000&page=2
+```
+
+**Sorting:**
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries/filter?lang=eng&sort=desc
+```
+
+## Development
 
 **Filter using Population:**
 
@@ -130,7 +190,7 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/c
 curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?population=50000000&page=2
 ```
 
-**Pagination:**
+**Sorting:**
 
 ```bash
 curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries/filter?lang=eng&sort=desc
@@ -145,6 +205,14 @@ curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/c
 **Description:** Fetches all countries details - For testing purpose only. Because it fetch all the details that's why it takes time to load (approx. 5-10 seconds)
 
 **Example:**
+
+- Deployed Instance
+
+```bash
+curl -H "Authorization: Bearer <your_auth_token>" http://assignment.snifyak.com/api/v1/countries
+```
+
+- Development
 
 ```bash
 curl -H "Authorization: Bearer <your_auth_token>" http://localhost:8080/api/v1/countries
